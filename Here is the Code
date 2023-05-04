@@ -1,0 +1,42 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class RandomWordGenerator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       String[] randomName = { "Ivan","John","Ahmed","Chyong Lee","Peter","Vladimir","George","Bob"};
+       String[] randomDestination = {"Austria","Russia","Bulgaria","China","Turkey","Mars"};
+       String[] randomAdverb = {"calmly","nervously","overwhelmingly","fearfully","unpleasantly","erotically",""};
+       String[] randomVerb = {"watched","ran at","jumped","stole the","started","punched the","sat in the","ate the","ran away from the","eat the","screamed at"};
+       String[] randomNoun = {"sunset","sea","airplane","Silver back Gorilla","bike","laptop","stones","cake","chocolate","pizza","burger"};
+       String[] details = {"near the river","at home","in the park","in Mars","in the grocery store","in the spaceship","in his dreams"};
+
+       while (true) {
+           String name = getRandomWords(randomName);
+           String destination = getRandomWords(randomDestination);
+           String adverb = getRandomWords(randomAdverb);
+           String verb = getRandomWords(randomVerb);
+           String noun = getRandomWords(randomNoun);
+           String detail = getRandomWords(details);
+           System.out.printf("%s from %s %s %s %s %s%n",name,destination,adverb,verb,noun,detail);
+           System.out.print("If you would like to continue, press [ENTER], else type [End] - > ");
+           String continueOrNot = scanner.nextLine();
+           if ( continueOrNot.equals("End")) {
+               break;
+           } else {
+               System.out.println();
+           }
+       }
+
+        }
+        public static String getRandomWords (String[] randomWords) {
+
+            Random random = new Random();
+            int randomIndex = random.nextInt(randomWords.length);
+            String randomWord = randomWords[randomIndex];
+
+            return randomWord;
+
+        }
+    }
